@@ -40,4 +40,14 @@ class AuthController extends Controller
          'token'=>$token],200);
 
    }
+
+     public function Logout (StoreLoginRequest $request)
+   {
+    
+    $request->user()->currentAccessToken()->delete();
+    
+            return response()->json(['message' => 'Loged out']);
+       
+
+   }
 }
